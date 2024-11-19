@@ -1,5 +1,6 @@
 class Costume < ApplicationRecord
-  belongs_to :user, foreign_key: :owner_id
+  has_one_attached :photo
+  belongs_to :owner, class_name: "User"
   has_many :bookings
 
   validates :price, :photo_url, :description, :title, presence: true

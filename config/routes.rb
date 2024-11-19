@@ -9,4 +9,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :costumes, only: [:index, :show] do
+    resources :bookings, only: :create
+  end
+  get "dashboard", to: "pages#dashboard", as: "dashboard"
+  namespace :owner do
+    resources :costumes, only: %i[new create]
+    resources :bookings, only: [] do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
+  end
 end
