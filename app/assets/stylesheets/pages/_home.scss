@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 30% 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(homepage_estrade.jpeg);
 }
 
 .banner h1 {
@@ -24,9 +25,27 @@
   border: white;
   background-color: purple;
   color: white;
+  width: 50%;
+  padding: 15px;
 }
 
 .btn:hover {
   background-color: rgb(164, 19, 164);
   color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center
+
+}
+
+h1 {
+  padding: 15px;
+}
+
+p {
+  padding: 15px;
 }
