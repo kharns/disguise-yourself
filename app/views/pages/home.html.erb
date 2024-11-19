@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="title">
+      <h1> <%= link_to "Disguise Yourself !", costumes_path, class: "text-decoration-none text-white" %> </h1>
+  </div>
+  <div class="container">
+      <div class="costumecard">
+          <img src="https://media.istockphoto.com/id/1417062331/fr/photo/concept-dhalloween-un-fant%C3%B4me-blanc-aux-yeux-noirs-fabriqu%C3%A9-%C3%A0-partir-dun-drap-de-lit-avec.jpg?s=612x612&w=0&k=20&c=CezAgZUnbftTnF8a__57ri0JP9XUfpeMsQujVn9cQa8=" alt="Costume1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGYCx_1I-e1eLYSEnDym5DEIyabs2R6hJ1CFmTLObXyZIpMgxAik-_EX0&s" alt="Costume2">
+      </div>
+      <p>Become who you've ever dream to be</p>
+      <%= link_to "Click to change your costum", costumes_path, class: "btn" %>
+  </div>
+</div>
+<div class="footer">
+  <p>Disguise Yourself</p>
+</div>
