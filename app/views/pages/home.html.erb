@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="title">
-      <h1>Disguise Yourself !</h1>
+      <h1> <%= link_to "Disguise Yourself !", costumes_path, class: "text-decoration-none text-white" %> </h1>
   </div>
   <div class="container">
       <div class="costumecard">
@@ -8,7 +8,7 @@
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGYCx_1I-e1eLYSEnDym5DEIyabs2R6hJ1CFmTLObXyZIpMgxAik-_EX0&s" alt="Costume2">
       </div>
       <p>Become who you've ever dream to be</p>
-      <a class="btn" href="#">Click to change your costum</a>
+      <%= link_to "Click to change your costum", costumes_path, class: "btn" %>
   </div>
 </div>
 <div class="footer">

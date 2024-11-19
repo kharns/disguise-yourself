@@ -1,0 +1,11 @@
+<h1>All costumes</h1>
+
+<ul>
+<% @costumes.each do |costume| %>
+<li>
+  <%= cl_image_tag(costume.photo.key) %>
+  <%= costume.title %>
+  <%= costume.price %>
+</li>
+<% end %>
+</ul>
