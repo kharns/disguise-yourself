@@ -1,1 +1,93 @@
 // Specific CSS for your home-page
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 50%;
+}
+
+.container p {
+  align-items: center;
+  text-justify: auto;
+  margin-top: 15px;
+}
+
+.title {
+    margin: 0;              /* Supprime les marges par défaut */
+    padding: 10px;          /* Ajoute un espace autour */
+    text-align: center;     /* Centre le texte horizontalement */
+    position: fixed;        /* Le titre reste en haut, même en défilement */
+    top: 0;                 /* Positionne à 0px du haut */
+    width: 100%;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  // padding: 30% 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(homepage_estrade.jpeg);
+  display: flex;
+  justify-items: center;
+  align-items: center
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn {
+  border: white;
+  background-color: purple;
+  color: white;
+  width: 50%;
+  padding: 15px;
+  border-radius: 10%;
+}
+
+.btn:hover {
+  background-color: rgb(164, 19, 164);
+  color: white;
+}
+
+.costumecard {
+  columns: 2;
+}
+.costumecard img{
+  display: flex;
+  gap: 20px; /* Add space between images */
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10%;
+  margin-bottom: 15px;
+}
+
+.footer {
+  background-color: #999999;
+  display: flex; /* Pour aligner les logos horizontalement */
+  justify-content: center; /* Centre les logos horizontalement */
+  align-items: center; /* Centre verticalement dans le footer */
+  bottom: 0;
+  color: white;
+  text-align: center;
+}
