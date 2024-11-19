@@ -83,11 +83,10 @@
 }
 
 .footer {
-  background-color: #ffffff; /* Fond blanc */
+  background: linear-gradient(to right, blue, pink);
   display: flex; /* Pour aligner les logos horizontalement */
   justify-content: center; /* Centre les logos horizontalement */
   align-items: center; /* Centre verticalement dans le footer */
-  border-top: 1px solid #ffffff; /* Ligne en haut du footer */
   bottom: 0;
-  border: 2px solid black;
+  color: white;
 }
