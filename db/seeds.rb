@@ -10,9 +10,9 @@
 
 require 'faker'
 require "open-uri"
-User.destroy_all
-Costume.destroy_all
 Booking.destroy_all
+Costume.destroy_all
+User.destroy_all
 
 user1 = User.create(username: "john_doe", email: "john@example.com", password: "123456")
 user2 = User.create(username: "jane_smith", email: "jane@example.com", password: "1234567")
@@ -34,5 +34,5 @@ costume3 = Costume.new(title: "predator", description: "Authentic Predator Desig
 costume3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 costume3.save
 
-# booking1 = Booking.create(start_date: Date.today, end_date: Date.today + 3, total_price: 60.0, user_id: user1.id, costume_id: costume1.id, status: "confirmed")
-# booking2 = Booking.create(start_date: Date.today + 5, end_date: Date.today + 7, total_price: 50.0, user_id: user2.id, costume_id: costume2.id, status: "pending")
+booking1 = Booking.create!(start_date: Date.today, end_date: Date.today + 3, total_price: 60.0, user: user1, costume: costume1, status: "accepted")
+booking2 = Booking.create(start_date: Date.today + 5, end_date: Date.today + 7, total_price: 50.0, user: user2, costume: costume2, status: "pending")
