@@ -1,9 +1,9 @@
-<h1>Great costumes !!!</h1>
+<h1>All costumes</h1>
 
 <ul>
 <% @costumes.each do |costume| %>
 <li>
-  <%= costume.photo.key %>
+  <%= cl_image_tag(costume.photo.key) %>
   <%= costume.title %>
   <%= costume.price %>
 </li>
