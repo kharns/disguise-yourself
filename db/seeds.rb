@@ -75,7 +75,6 @@ costume10 = Costume.new(title: "Adult Sumo Twin Suits ", description: " Have a b
 costume10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 costume10.save
 
-
 booking1 = Booking.new(start_date: Date.today, end_date: Date.today + 3, user: user1, costume: costume1, status: "accepted")
 booking1.total_price = (booking1.end_date - booking1.start_date).to_i * booking1.costume.price
 booking1.save!
