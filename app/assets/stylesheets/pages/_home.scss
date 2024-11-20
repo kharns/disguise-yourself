@@ -51,10 +51,11 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: 0.8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+// Button homepage
 #btn-homepage {
   border: white;
   background-color: purple;
@@ -62,6 +63,8 @@
   width: 50%;
   padding: 15px;
   border-radius: 10%;
+  text-decoration:none;
+  text-align: center;
 }
 
 #btn-homepage:hover {
@@ -69,6 +72,7 @@
   color: white;
 }
 
+// Costume card homepage
 .costumecard {
   columns: 2;
 }
@@ -80,14 +84,4 @@
   object-fit: cover;
   border-radius: 10%;
   margin-bottom: 15px;
-}
-
-.footer {
-  background-color: #999999;
-  display: flex; /* Pour aligner les logos horizontalement */
-  justify-content: center; /* Centre les logos horizontalement */
-  align-items: center; /* Centre verticalement dans le footer */
-  bottom: 0;
-  color: white;
-  text-align: center;
 }

@@ -1,3 +1,4 @@
+// Navbar All pages
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +10,14 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-item active {
+  padding-left: 30px;
+}
+
+#navname a {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
 }
