@@ -53,9 +53,45 @@ costume6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 costume6.save
 
 file = URI.parse("https://img.fruugo.com/product/8/43/194235438_max.jpg").open
-costume7 = Costume.new(title: "Maleficent ", description: " You can be Maleficent, the Lady of all evil from Disney is 2014 live action fantasy horror with Angelina Jolie. Beware of princess Aurora", price: 25, owner: user1)
+costume7 = Costume.new(title: "Maleficent ", description: " You can be Maleficent, the Lady of all evil from Disney is 2014 live action fantasy horror with Angelina Jolie. Beware of princess Aurora.", price: 25, owner: user1)
 costume7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 costume7.save
 
-booking1 = Booking.create!(start_date: Date.today, end_date: Date.today + 3, total_price: 60.0, user: user1, costume: costume1, status: "accepted")
-booking2 = Booking.create(start_date: Date.today + 5, end_date: Date.today + 7, total_price: 50.0, user: user2, costume: costume2, status: "pending")
+file = URI.parse("https://images.fun.com/products/73354/1-41/adult-inflatable-minion-costume.jpg").open
+costume8 = Costume.new(title: "Inflatable Minion Costume for Adults ", description: " If you are looking for the perfectly short and yellow way to impress your friends, then this Adult Inflatable Minion Costume is for you! You only have to provide the chipper and silly spirit of a minion and the costume will do the rest!", price: 15 , owner: user3)
+costume8.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+costume8.save
+
+file = URI.parse("https://i5.walmartimages.com/asr/a00a4fb4-ce91-475f-9b10-289e1e26c3b5.9cdab538c60e4dbcec687cd926ecb1bb.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF").open
+costume9 = Costume.new(title: "Women's Maid Marian Costume ", description: " You can quit browsing for Halloween costumes for women now. You’ve struck gold. This Maid Marian Adult Women’s Costume is an astounding way to make your Halloween night a haunting experience no matter where you’re headed.
+  Includes:
+  • Dress with attached sash
+  • Headpiece with drape ", price: 17 , owner: user2)
+costume9.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+costume9.save
+
+file = URI.parse("https://www.occitanie-sl.fr/storage/images/image?remote=https%3A%2F%2Fwww.occitanie-sl.fr%2FWebRoot%2FStore20%2FShops%2F58fbc031-5949-418d-9a45-d2b97376d1fe%2F5BCB%2F33F6%2F7D0F%2F7981%2FEE82%2F0A48%2F3549%2FBF89%2Fsumo_adultes_jumeaux.jpg&shop=58fbc031-5949-418d-9a45-d2b97376d1fe").open
+costume10 = Costume.new(title: "Adult Sumo Twin Suits ", description: " Have a blast with our inflatable sumo costumes! Are you and your friends ready for an epic, laughter-filled showdown? Our inflatable sumo costumes are here to guarantee fun at any event! With their padded design and vibrant colors, these suits will transform you and your friends into sumo wrestlers in the blink of an eye.", price: 200 , owner: user3)
+costume10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+costume10.save
+
+
+booking1 = Booking.new(start_date: Date.today, end_date: Date.today + 3, user: user1, costume: costume1, status: "accepted")
+booking1.total_price = (booking1.end_date - booking1.start_date).to_i * booking1.costume.price
+booking1.save!
+
+booking2 = Booking.new(start_date: Date.today + 5, end_date: Date.today + 7, user: user2, costume: costume2, status: "pending")
+booking2.total_price = (booking2.end_date - booking2.start_date).to_i * booking2.costume.price
+booking2.save!
+
+booking3 = Booking.new(start_date: Date.today + 2, end_date: Date.today + 5, user: user3, costume: costume3, status: "accepted")
+booking3.total_price = (booking3.end_date - booking3.start_date).to_i * booking3.costume.price
+booking3.save!
+
+booking4 = Booking.new(start_date: Date.today + 1, end_date: Date.today + 4, user: user1, costume: costume4, status: "accepted")
+booking4.total_price = (booking4.end_date - booking4.start_date).to_i * booking4.costume.price
+booking4.save!
+
+booking5 = Booking.new(start_date: Date.today + 3, end_date: Date.today + 6, user: user2, costume: costume5, status: "declined")
+booking5.total_price = (booking5.end_date - booking5.start_date).to_i * booking5.costume.price
+booking5.save!
