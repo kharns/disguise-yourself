@@ -10,6 +10,7 @@
   padding: 16px;
   border-radius: 10px;
   text-align: center;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
 .costume-photo {
@@ -21,11 +22,12 @@
 .costume-name {
   font-size: 19px;
   margin: 8px 0;
+  color: whitesmoke;
 }
 
-.costume-price {
+.costume-price p {
   font-size: 18px;
-  color: #e74c3c;
+  color: whitesmoke;
 }
 
 li {
@@ -34,4 +36,10 @@ li {
 
 a {
   text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  font-family: Impact;
+  margin-top: 8px;
 }

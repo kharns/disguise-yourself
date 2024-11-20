@@ -1,5 +1,7 @@
 <%= render "shared/navbar" %>
-<h1>All costumes</h1>
+<h1>All ours costumes</h1>
+
+<%= link_to "Add Costume", "#", class: "btn btn-gradient" %>
 
 <ul class="costume-grid">
 <% @costumes.each do |costume| %>
@@ -7,7 +9,7 @@
     <%= link_to costume_path(costume) do %>
         <%= cl_image_tag(costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face, class:"costume-photo") %>
         <h2 class="costume-name"><%= costume.title %></h2>
-        <div class="costume-price"></div><%= costume.price %></div>
+        <div class="costume-price"> <p> <%= costume.price%> €</p>
     <% end %>
   </li>
 <% end %>
