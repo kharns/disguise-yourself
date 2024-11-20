@@ -18,9 +18,14 @@
 
 // Home Navbar
 .navbar-home {
+  display: flex;
   justify-content: space-between;
   background: white;
   // opacity: 0.2;
+}
+
+.navbarhome-brand {
+  display: flex;
 }
 
 .navbar-home .navbar-collapse {
