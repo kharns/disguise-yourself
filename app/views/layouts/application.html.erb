@@ -11,14 +11,13 @@
   </head>
 
   <body>
-    <%# affiche la navbar sur toutes les pages (mais on veut la veut pas sur la hoem page)%>
-    <%# <%= render "shared/navbar" %>
+    <%# container pour tout le site %>
 
-    <%= yield %>
+      <%= yield %>
 
     <%# LES DEUX LIGNES CI-DESSOUS SONT LA CAUSE DE LA LIGNE BLANCHE EN BAS DE PAGE %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
   </body>
 </html>
