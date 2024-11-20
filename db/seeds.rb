@@ -16,7 +16,7 @@ User.destroy_all
 
 user1 = User.create(username: "john_doe", email: "john@example.com", password: "123456")
 user2 = User.create(username: "jane_smith", email: "jane@example.com", password: "1234567")
-user3 = User.create(username: "bob_ross", email: "bob@example.com", password: "asdfgh" )
+user3 = User.create(username: "bob_ross", email: "bob@example.com", password: "asdfgh")
 
 
 file = URI.parse("https://images.pexels.com/photos/28830053/pexels-photo-28830053/free-photo-of-pirata-historico-en-un-gran-velero-usando-un-telescopio.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1").open
