@@ -1,3 +1,4 @@
+// Navbar All pages
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -14,10 +15,12 @@
 .nav-item active {
   padding-left: 30px;
 }
+
 // Home Navbar
 .navbar-home {
   justify-content: space-between;
-  background: black;
+  background: white;
+  // opacity: 0.2;
 }
 
 .navbar-home .navbar-collapse {

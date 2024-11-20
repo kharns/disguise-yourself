@@ -1,9 +1,8 @@
 class PagesController < ApplicationController
   def home
     @costumes = Costume.all
-  end
-
-  def show
-    @costume = Costume.find(params[:id])
+    # @costume = Costume.find(params[:id])
+    @costume1 = @costumes.sample
+    @costume2 = @costumes.sample
   end
 end
