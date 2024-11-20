@@ -10,3 +10,20 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-item active {
+  padding-left: 30px;
+}
+// Home Navbar
+.navbar-home {
+  justify-content: space-between;
+  background: black;
+}
+
+.navbar-home .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-home .navbar-brand img {
+  width: 40px;
+}
