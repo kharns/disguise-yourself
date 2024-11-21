@@ -1,14 +1,16 @@
 <%= render "shared/navbarhome" %>
 
-<div class="pages-container">
-  <h1> Hello <%= @user.username  %> </h1>
+  <h1 id="title-dashboard"> Hello <%= @user.username  %> </h1>
+<div id="container" class="pages-container">
   <div id="booking-dashboard-grid">
     <%# Div des Owner Bookings status : "Pending" %>
-    <div class="show-bookings mt-3">
+    <div class="pending-bookings mt-3">
       <% if @owner_bookings == [] %>
         <h2 class="text-decoration">You don't have any booking at this moment</h2>
       <% else %>
-        <h2 class="text-decoration">Bookings for your costumes</h2>
+        <div class="title-status">
+          <h2 class="text-decoration">Bookings for your costumes</h2>
+        </div>
         <div id="pending-bloc"class="d-flex gap-3 mt-3">
           <% if @owner_bookings != nil %>
             <% @owner_bookings.each do |b| %>
@@ -30,11 +32,13 @@
     </div>
 
     <%# Div des Owner Bookings status : "Accepted" %>
-    <div class="validate-card mt-3">
+    <div class="validate-card-owner mt-3">
       <% if @owner_bookings == [] %>
         <h2 class="text-decoration">You don't have any booking at this moment</h2>
       <% else %>
-        <h2 class="text-decoration">Validates Bookings !</h2>
+        <div class="title-status">
+          <h2 class="text-decoration">Validates Bookings !</h2>
+        </div>
         <div id="validate-bloc" class="d-flex gap-3 mt-3">
           <% if @owner_bookings != nil %>
             <% @owner_bookings.each do |b| %>
@@ -53,14 +57,15 @@
       <% end %>
     </div>
   </div>
+  <%#  %>
   <%# All costumes you're selling %>
-  <div>
-    <h2>All your costume in the renting shop</h2>
-    <div class="owner-costume-card">
-      <% @owner_costumes.each do |owner_costume| %>
-      <%= owner_costume.title  %>
-       <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
-      <% end %>
+    <div class="costumes-owner">
+      <h2>All your costume in the renting shop</h2>
+      <div class="owner-costume-card">
+        <% @owner_costumes.each do |owner_costume| %>
+        <%= owner_costume.title  %>
+        <%= cl_image_tag(owner_costume.photo.key, width: 100, height: 100, crop: :fill, gravity: :face) %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  </div>
+</div>

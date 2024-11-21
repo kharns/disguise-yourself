@@ -1,14 +1,51 @@
-#booking-dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px
-}
-#pending-card-owner{
-  grid-column: 1 / 2;
-  box-shadow: 0px 0px 5px grey;
+// Contient les deux grosses:
+  // booking-dashboard-grid
+  // &
+  //costume-owner
+
+#title-dashboard {
+  text-align: center;
+  margin: 15px;
 }
 
-#validate-card-owner {
-  grid-column: 1 / 2;
-  box-shadow: 0px 0px 5px grey;
+
+.pages-container {
+  display: flex; /* Active Flexbox */
+  gap: 20px; /* Espacement entre les colonnes */
+  align-items: flex-start; /* Alignement en haut des colonnes */
 }
+
+#booking-dashboard-grid,
+.costumes-owner {
+  flex: 1; /* Les colonnes prennent une taille égale */
+  padding: 20px; /* Espacement interne */
+  border: 1px solid #ccc; /* Bordure pour mieux voir les colonnes */
+  background-color: #f9f9f9; /* Couleur de fond */
+}
+
+.costumes-owner {
+  max-width: 400px; /* Optionnel : Limite la largeur de cette colonne */
+}
+
+  // Comprend les deux div pending et validate
+  // Contenu dans le container
+  #booking-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+    // Card pending avec Accept et Decline
+    #pending-card-owner{
+      box-shadow: 0px 0px 5px grey;
+    }
+
+    // Card validate
+    #validate-card-owner {
+      box-shadow: 0px 0px 5px grey;
+    }
+
+  // Div des costumes liés à un owner_id
+  // Contenu dans le container
+  .costumes-owner {
+    display: grid;
+    justify-items: center
+  }
