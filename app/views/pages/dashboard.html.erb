@@ -1,55 +1,57 @@
 <%= render "shared/navbarhome" %>
 
+<div class="pages-container">
 <h1> Hello <%= @user.username  %> </h1>
 
-<%# Owner Boookings on your Costumes %>
+<%# Div des Owner Bookings status : "Pending" %>
+  <div class="show-bookings mt-3">
+    <% if @owner_bookings == [] %>
+      <h2 class="text-decoration">You don't have any booking at this moment</h2>
+    <% else %>
+      <h2 class="text-decoration">Bookings for your costumes</h2>
+      <div class="d-flex gap-3 mt-3">
+        <% if @owner_bookings != nil %>
+          <% @owner_bookings.each do |b| %>
+            <div id="booking-card-owner" class="bg-white p-3">
+              <img src="#" alt="Image du costume">
+              <p class="border rounded"> <%= b.status %> </p>
+              <p><strong>Book by:</strong> <%= b.user.username %></p>
+              <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
+              <p>Start: <%= b.start_date %></p>
+              <p>End: <%= b.end_date %></p>
+              <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
+              <button type="button" class="btn btn-outline-success">Accept</button>
+              <button type="button" class="btn btn-outline-danger">Decline</button>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<%# Div des Owner Bookings status : "Accepted" %>
 <div class="show-bookings mt-3">
   <% if @owner_bookings == [] %>
     <h2 class="text-decoration">You don't have any booking at this moment</h2>
   <% else %>
-    <h2 class="text-decoration">Bookings for your costumes</h2>
+    <h2 class="text-decoration">Validates Bookings !</h2>
     <div class="d-flex gap-3 mt-3">
       <% if @owner_bookings != nil %>
         <% @owner_bookings.each do |b| %>
           <div id="booking-card-owner" class="bg-white p-3">
             <img src="#" alt="Image du costume">
-            <p class="border rounded"> <%= b.status %> </p>
+            <p class="border border-success"> <%= b.status = "Accepted" %> </p>
             <p><strong>Book by:</strong> <%= b.user.username %></p>
             <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
             <p>Start: <%= b.start_date %></p>
             <p>End: <%= b.end_date %></p>
             <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-            <button type="button" class="btn btn-outline-success">Accept</button>
-            <button type="button" class="btn btn-outline-danger">Decline</button>
           </div>
         <% end %>
       <% end %>
     </div>
   <% end %>
 </div>
-
-
-<%# Costumes rent %>
-<div class="show-bookings mt-3">
-    <% if @user_bookings == [] %>
-    <h2 class="text-decoration">You don't have any booking for this costume :( </h2>
-    <% else %>
-      <h2 class="text-decoration">The costumes you’re going to wear</h2>
-      <div class="d-flex gap-3 mt-3">
-        <% if @user_bookings != nil %>
-          <% @user_bookings.each do |b| %>
-            <div id="booking-card" class="bg-white p-3">
-              <img src="#" alt="Costume id">
-              <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-              <p>Start: <%= b.start_date %></p>
-              <p>End: <%= b.end_date %></p>
-              <p>Total Price: <strong><%= b.total_price.round %>€</strong></p>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
 
 <%# All costumes you're selling %>
 <div>
@@ -59,4 +61,5 @@
     <p>Description</p>
     <p>Price</p>
   </div>
+</div>
 </div>
