@@ -7,9 +7,23 @@ class Owner::CostumesController < ApplicationController
     @costume = Costume.new(costume_params)
     @costume.owner = current_user
     if @costume.save
-      redirect_to costume_path(@costume), notice: "Costume successfully added."
+      redirect_to costume_path(@costume), notice: "Costume successfully added"
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @costume = Costume.find(params[:id])
+  end
+
+  def update
+    @costume = Costume.find(params[:id])
+    @costume.update(costume_params)
+    if @costume.save
+      redirect_to costume_path(@costume), notice: "Costume successfully edited"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

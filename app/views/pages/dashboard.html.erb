@@ -60,6 +60,9 @@
       <% @owner_costumes.each do |owner_costume| %>
       <%= owner_costume.title  %>
        <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
+       <%= link_to "edit", edit_owner_costume_path(owner_costume) %>
+       <%# A CHANGER %>
+       <%= link_to "delete", edit_owner_costume_path(owner_costume) %>
       <% end %>
     </div>
   </div>

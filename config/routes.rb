@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "dashboard", to: "pages#dashboard", as: "dashboard"
   namespace :owner do
-    resources :costumes, only: %i[new create]
+    resources :costumes, only: %i[new create edit update]
     resources :bookings, only: [] do
       member do
         patch :accept
