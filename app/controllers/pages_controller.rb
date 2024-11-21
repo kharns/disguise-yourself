@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     # @costume = Costume.find(params[:id])
     @costume1 = @costumes.sample
     @costume2 = @costumes.sample
+    @costume2 = @costumes.sample until @costume2 != @costume1
   end
 
   def dashboard
