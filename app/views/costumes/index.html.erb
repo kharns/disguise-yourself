@@ -12,7 +12,7 @@
         <%= link_to costume_path(costume) do %>
             <%= cl_image_tag(costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face, class:"costume-photo") %>
             <h2 class="costume-name"><%= costume.title %></h2>
-            <p class="costume-price"> <%= costume.price.round%> €</p>
+            <p id="costume-price-new"> <%= costume.price.round%> €</p>
         <% end %>
       </li>
     <% end %>

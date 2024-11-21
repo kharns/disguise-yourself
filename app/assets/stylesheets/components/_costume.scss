@@ -10,7 +10,9 @@
   padding: 16px;
   border-radius: 10px;
   text-align: center;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  //background: linear-gradient(90deg, rgba(139,143,144,1) 18%, rgba(195,198,198,1) 50%, rgba(139,143,144,1) 87%);
+  background: linear-gradient(90deg, rgba(105,108,108,1) 18%, rgba(185,190,191,1) 50%, rgba(105,108,108,1) 87%);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5) ;
 }
 
 .costume-photo {
@@ -25,7 +27,7 @@
   color: whitesmoke;
 }
 
-.costume-price p {
+#costume-price-new {
   font-size: 18px;
   color: whitesmoke;
 }

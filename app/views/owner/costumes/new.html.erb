@@ -1,10 +1,11 @@
 <%= render "shared/navbar" %>
-<h1 id="title-new">Create Your Costume</h1>
-
-<%= simple_form_for([:owner, @costume], html: { id: 'new-costume-form', class: 'custom-form' }) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit id: 'new-form-submit' %>
-<% end %>
+<div class="container-new-owner">
+  <h1 id="title-new">Create Costume</h1>
+  <%= simple_form_for([:owner, @costume], html: { id: 'new-costume-form', class: 'custom-form' }) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit id: 'new-form-submit' %>
+  <% end %>
+</div>
