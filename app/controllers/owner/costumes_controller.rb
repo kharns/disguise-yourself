@@ -21,9 +21,20 @@ class Owner::CostumesController < ApplicationController
     @costume = Costume.find(params[:id])
     @costume.update(costume_params)
     if @costume.save
-      redirect_to costume_path(@costume), notice: "Costume successfully edited"
+      redirect_to dashboard_path, notice: "Costume successfully edited"
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @costume = Costume.find(params[:id])
+    if @costume.bookings.empty?
+      @costume.destroy
+      redirect_to dashboard_path, notice: "Costume deleted", status: :see_other
+    else
+      # A METTRE EN ALERTE (ROUGE)
+      redirect_to dashboard_path, notice: "Costume cannot be deleted, you have booking on it!"
     end
   end
 

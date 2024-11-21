@@ -1,4 +1,6 @@
 <%= render "shared/navbarhome" %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <div class="pages-container">
   <h1> Hello <%= @user.username  %> </h1>
@@ -59,10 +61,14 @@
     <div class="owner-costume-card">
       <% @owner_costumes.each do |owner_costume| %>
       <%= owner_costume.title  %>
-       <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
-       <%= link_to "edit", edit_owner_costume_path(owner_costume) %>
-       <%# A CHANGER %>
-       <%= link_to "delete", edit_owner_costume_path(owner_costume) %>
+        <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
+        <%# EDIT BUTTON %>
+        <%= link_to "edit", edit_owner_costume_path(owner_costume) %>
+        <%# DELETE BUTTON %>
+        <%= link_to "delete",
+          owner_costume_path(owner_costume),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
       <% end %>
     </div>
   </div>
