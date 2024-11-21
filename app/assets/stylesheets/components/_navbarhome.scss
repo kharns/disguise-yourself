@@ -9,7 +9,8 @@
 
 #homenav {
   justify-content: space-between;
-  background: linear-gradient(130deg, rgba(226,172,198,1) 11%, rgba(147,151,164,1) 25%, rgba(232,173,200,1) 54%, rgba(137,148,160,1) 74%, rgba(238,174,202,1) 97%);
+  background: white;
+  // background: linear-gradient(130deg, rgba(226,172,198,1) 11%, rgba(147,151,164,1) 25%, rgba(232,173,200,1) 54%, rgba(137,148,160,1) 74%, rgba(238,174,202,1) 97%);
 }
 
 // .navbar-lewagon .navbar-collapse {
@@ -27,6 +28,6 @@
 #homename a {
   list-style-type: none;
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: large;
 }
