@@ -13,13 +13,14 @@
         <% @owner_bookings.each do |b| %>
           <div id="booking-card-owner" class="bg-white p-3">
             <img src="#" alt="Image du costume">
+            <p class="border rounded"> <%= b.status %> </p>
             <p><strong>Book by:</strong> <%= b.user.username %></p>
             <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
             <p>Start: <%= b.start_date %></p>
             <p>End: <%= b.end_date %></p>
             <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-            <p id="button-accept" class="btn btn-success">Accept</p>
-            <p id="button-decline"class="btn btn-danger">Decline</p>
+            <button type="button" class="btn btn-outline-success">Accept</button>
+            <button type="button" class="btn btn-outline-danger">Decline</button>
           </div>
         <% end %>
       <% end %>
