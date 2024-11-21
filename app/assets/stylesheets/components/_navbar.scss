@@ -1,6 +1,8 @@
 // Navbar All pages
 .navbar-lewagon {
   justify-content: space-between;
+  padding-inline: 50px;
+  gap: 100px;
   background: white;
 }
 
@@ -20,4 +22,5 @@
   list-style-type: none;
   text-decoration: none;
   color: black;
+  font-size: large;
 }

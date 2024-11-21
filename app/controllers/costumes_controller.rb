@@ -3,6 +3,10 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = Costume.all
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR description ILIKE :query"
+      @costumes = @costumes.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show

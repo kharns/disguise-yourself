@@ -11,10 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="vh-100">
-
+  <body>
+    <main class="min-vh-100">
       <%= yield %>
-
+    </main>
     <%= render "shared/footer" %>
   </body>
 </html>
