@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
 }
 
 .container p {
@@ -62,12 +62,12 @@
 }
 .costumecard img{
   display: flex;
-  gap: 20px; /* Add space between images */
+  gap: 40px; /* Add space between images */
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 10%;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 // Button homepage

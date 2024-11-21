@@ -1,11 +1,11 @@
 <%= render "shared/navbar" %>
 <div class="banner">
   <div class="container">
+      <p class="mb-3 fs-2">Become who you've ever dreamed to be</p>
       <div class="costumecard">
-          <%= link_to cl_image_tag(@costume1.photo.key, width: 250, height: 250, crop: :fill, gravity: :face), costume_path(@costume1) %>
-          <%= link_to cl_image_tag(@costume2.photo.key, width: 250, height: 250, crop: :fill, gravity: :face), costume_path(@costume2) %>
+          <%= link_to cl_image_tag(@costume1.photo.key, width: 300, height: 300, crop: :fill, gravity: :face), costume_path(@costume1) %>
+          <%= link_to cl_image_tag(@costume2.photo.key, width: 300, height: 300, crop: :fill, gravity: :face), costume_path(@costume2) %>
       </div>
-      <p>Become who you've ever dream to be</p>
       <%= link_to "Find THE costume that suits you!", costumes_path, id:"btn-homepage" %>
   </div>
 </div>
