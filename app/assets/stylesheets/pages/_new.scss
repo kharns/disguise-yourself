@@ -9,6 +9,7 @@
 
 .container-new-owner {
   position: relative;
+  height: 100%;
 }
 
 .container-new-owner::before {
@@ -22,9 +23,9 @@
   background-size: cover;
   background-position: center;
   filter: blur(2px);
-  z-index: -1; }
-
-  .custom-form {
-    position: relative;
-    z-index: 1;
-  }
+  z-index: -1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

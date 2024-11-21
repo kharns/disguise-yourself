@@ -3,13 +3,13 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(236,243,244,1) 100%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(90deg, rgba(105,108,108,0.8) 18%, rgba(185,190,191,0.8) 50%, rgba(105,108,108,0.8) 87%);
   transition: background 0.3s ease;
   border: 1px solid #0F60C4;
   margin-left: 35px ;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(90deg, rgba(85,88,88,0.9) 18%, rgba(165,170,171,0.9) 50%, rgba(85,88,88,0.9) 87%);
   color: white;
 }
