@@ -32,18 +32,25 @@
   </div>
 
   <div class="show-bookings mt-3">
+    <%# Si l'user n'a pas de réservations sur ce costume, on le lui indique %>
     <% if @user_bookings == [] %>
     <h2 class="text-decoration-underline">You don't have any booking for this costume :( </h2>
     <% else %>
+      <%# S'il a des réservtions, on les affiche %>
       <h2 class="text-decoration-underline">Your bookings for this costume</h2>
       <div class="d-flex gap-3 mt-3">
         <% if @user_bookings != nil %>
           <% @user_bookings.each do |b| %>
             <div class="bg-white p-3">
               <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-              <p>Start date: <%= b.start_date %></p>
-              <p>End date: <%= b.end_date %></p>
-              <p>Total Price: <strong><%= b.total_price %>€</strong></p>
+              <p>From <%= b.start_date %></p>
+              <p>To <%= b.end_date %></p>
+              <p><i class="fa-solid fa-euro-sign"></i> <strong><%= b.total_price.round %></strong></p>
+              <p>Status: <%= b.status %></p>
+
+              <%# Liens pour ACCEPT et DECLINE => A transférer dans DASHBOARD %>
+              <%= link_to "accept", accept_owner_booking_path(b), data: { turbo_method: :patch} %>
+              <%= link_to "decline", decline_owner_booking_path(b), data: { turbo_method: :patch} %>
             </div>
           <% end %>
         <% end %>
