@@ -1,25 +1,33 @@
 // Home Navbar
-.navbar-home {
-  display: flex;
+
+// .navbarhome {
+//   display: flex;
+//   justify-content: space-between;
+//   background: linear-gradient(130deg, rgba(226,172,198,1) 11%, rgba(147,151,164,1) 25%, rgba(232,173,200,1) 54%, rgba(137,148,160,1) 74%, rgba(238,174,202,1) 97%);
+//   // opacity: 0.2;
+// }
+
+#homenav {
   justify-content: space-between;
   background: white;
-  // opacity: 0.2;
+  // background: linear-gradient(130deg, rgba(226,172,198,1) 11%, rgba(147,151,164,1) 25%, rgba(232,173,200,1) 54%, rgba(137,148,160,1) 74%, rgba(238,174,202,1) 97%);
 }
 
-.navbarhome-brand {
-  display: flex;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
 
-.navbar-home .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
 
-.navbar-home .navbar-brand img {
-  width: 40px;
-}
+// .nav-item active {
+//   padding-left: 30px;
+// }
 
 #homename a {
   list-style-type: none;
   text-decoration: none;
   color: black;
+  font-size: large;
 }

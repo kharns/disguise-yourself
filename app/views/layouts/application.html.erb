@@ -11,12 +11,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="vh-100">
     <%# container pour tout le site %>
 
       <%= yield %>
 
-    <%# LES DEUX LIGNES CI-DESSOUS SONT LA CAUSE DE LA LIGNE BLANCHE EN BAS DE PAGE %>
-
+    <%= render "shared/footer" %>
   </body>
 </html>
