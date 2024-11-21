@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @costume = Costume.find(params[:costume_id])
+    @user_bookings = @costume.bookings.where(user: current_user).sort_by(&:start_date)
     @booking.costume = @costume
     @booking.user_id = current_user.id
     if !@booking.start_date.nil? && !@booking.end_date.nil? && @booking.start_date < @booking.end_date
