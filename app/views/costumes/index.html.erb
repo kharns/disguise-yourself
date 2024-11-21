@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 <h1 id="title-index">All ours costumes</h1>
 
-<%= link_to "Add Costume", "#", class: "btn btn-gradient" %>
+<%= link_to "Add Costume", new_owner_costume_path, class: "btn btn-gradient" %>
 
 <ul class="costume-grid">
 <% @costumes.each do |costume| %>

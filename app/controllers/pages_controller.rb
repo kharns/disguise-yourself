@@ -7,4 +7,15 @@ class PagesController < ApplicationController
     @costume2 = @costumes.sample
     @costume2 = @costumes.sample until @costume2 != @costume1
   end
+
+  def dashboard
+    @user = current_user
+    @user_bookings = @user.bookings
+    @owner_bookings = Booking.joins(:costume).where(costumes: { owner_id: current_user.id })
+      # Changer le status de
+      # @owner_bookings.status = !@owner_bookings.status
+      # @owner_bookings.save
+
+      # redirect_to dashboard_path(owner_bookings)
+  end
 end
