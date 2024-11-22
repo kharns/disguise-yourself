@@ -10,10 +10,10 @@
     <div class="status-bookings">
       <h2 class="text-decoration">The costumes you're going to wear</h2>
         <div class="pending-bookings">
-        <% if @owner_bookings != [] %>
+        <% if @user_bookings != [] %>
           <div id="pending-bloc"class="gap-1">
-            <% if @owner_bookings != nil %>
-              <% @owner_bookings.where(status: "accepted").each do |b| %>
+            <% if @user_bookings != nil %>
+              <% @user_bookings.where(status: "accepted").each do |b| %>
                 <div class="card-owner bg-white d-flex my-3">
                   <%= link_to costume_path(b.costume) do %>
                     <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
