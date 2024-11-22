@@ -7,11 +7,11 @@
 .show-card {
   grid-column: 1 / 3;
   box-shadow: 0px 0px 5px grey;
+  background-color: rgb(228, 228, 228);
 }
 
 .booking-card {
   grid-column: 3 / 3;
-
 }
 
 .show-title {
@@ -22,21 +22,36 @@
   margin-inline: 100px;
 }
 
+.text-decoration-message {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.bg-white {
+  box-shadow: 0px 0px 5px grey;
+}
+
+.card_width {
+  width: 300px;
+}
 // status colors of booking
 .status-green {
   color: green;
+  box-shadow: 0px 0px 5px rgb(127, 226, 97);
   background-color: rgba(0, 255, 0, 0.1);
   border-radius: 10%;
-  
+
 }
 .status-yellow {
   color: orange;
+  box-shadow: 0px 0px 5px rgb(231, 156, 70);
   background-color: rgba(255, 165, 0, 0.1);
   border-radius: 10%;
 }
 
 .status-red {
   color: red;
+  box-shadow: 0px 0px 5px rgb(235, 97, 97);
   background-color: rgba(255, 0, 0, 0.1);
   border-radius: 10%;
 }

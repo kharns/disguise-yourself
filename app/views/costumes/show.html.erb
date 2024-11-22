@@ -7,7 +7,7 @@
   <h1 class="mt-3 show-title"><%= @costume.title.capitalize %></h1>
 
   <div class="show-grid mt-3">
-    <div class="show-card d-flex flex-column">
+    <div class="show-card d-flex flex-row">
       <%= cl_image_tag(@costume.photo.key, width: 500, height: 350, crop: :fill, gravity: :face) %>
       <p class="mt-2 p-3"><%= @costume.description %></p>
     </div>
@@ -32,30 +32,34 @@
   <div class="show-bookings mt-3">
     <%# Si l'user n'a pas de réservations sur ce costume, on le lui indique %>
     <% if @user_bookings == [] %>
-    <h2 class="text-decoration-underline">You don't have any booking for this costume :( </h2>
+    <h2 class="text-decoration-message">You don't have any booking for this costume :( </h2>
     <% else %>
       <%# S'il a des réservtions, on les affiche %>
-      <h2 class="text-decoration-underline">Your bookings for this costume</h2>
+      <h2 class="text-decoration-message">Your bookings for this costume</h2>
       <div class="d-flex gap-3 mt-3">
         <% if @user_bookings != nil %>
           <% @user_bookings.each do |b| %>
-            <div class="bg-white p-3">
-              <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-              <p>From <%= b.start_date %></p>
-              <p>To <%= b.end_date %></p>
-              <p><i class="fa-solid fa-euro-sign"></i> <strong><%= b.total_price.round %></strong></p>
-                <%# condition pour l'status%>
-                <% if b.status == 'pending'%>
-                    <p class="status-yellow">Pending</p>
-                  <% elsif b.status == 'accepted'%>
-                    <p class= "status-green">Accepted</p>
-                  <% elsif b.status == 'declined' %>
-                    <p class= "status-red">Declined</p>
-                <% end %>
+            <div class="bg-white card_width p-3">
 
+              <div class="d-flex justify-content-between">
+                <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
+                  <%# condition pour l'status%>
+                  <% if b.status == 'pending'%>
+                      <p class="status-yellow">Pending</p>
+                    <% elsif b.status == 'accepted'%>
+                      <p class= "status-green">Accepted</p>
+                    <% elsif b.status == 'declined' %>
+                      <p class= "status-red">Declined</p>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>From <%= b.start_date %></p>
+                <p>To <%= b.end_date %></p>
+              </div>
+                <p><i class="fa-solid fa-euro-sign"></i> <strong><%= b.total_price.round %></strong></p>
               <%# Liens pour ACCEPT et DECLINE => A transférer dans DASHBOARD %>
-              <%= link_to "accept", accept_owner_booking_path(b), data: { turbo_method: :patch} %>
-              <%= link_to "decline", decline_owner_booking_path(b), data: { turbo_method: :patch} %>
+              <%# <%= link_to "accept", accept_owner_booking_path(b), data: { turbo_method: :patch} %>
+              <%# <%= link_to "decline", decline_owner_booking_path(b), data: { turbo_method: :patch} %>
             </div>
           <% end %>
         <% end %>
