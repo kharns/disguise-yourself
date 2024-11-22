@@ -63,13 +63,12 @@
       <%= owner_costume.title  %>
         <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
         <%# EDIT BUTTON %>
-        <%= link_to edit_owner_costume_path(owner_costume) do %>
-        <i class="fa-solid fa-pen"></i>
-        <% end %>
+        <%= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, edit_owner_costume_path(owner_costume), class: "text-black"%>
         <%# DELETE BUTTON %>
-        <%= link_to "delete",
+        <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
           owner_costume_path(owner_costume),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "text-danger"
         %>
       <% end %>
     </div>
