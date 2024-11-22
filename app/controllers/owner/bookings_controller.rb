@@ -11,7 +11,7 @@ class Owner::BookingsController < ApplicationController
   # REFUSER BOOKING
   def decline
     @booking = Booking.find(params[:id])
-    @booking.status = "decline"
+    @booking.status = "declined"
     @booking.save
     redirect_to costume_path(@booking.costume)
   end
