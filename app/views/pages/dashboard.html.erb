@@ -63,7 +63,9 @@
       <%= owner_costume.title  %>
         <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
         <%# EDIT BUTTON %>
-        <%= link_to <i class="fab fa-github"></i>, edit_owner_costume_path(owner_costume) %>
+        <%= link_to edit_owner_costume_path(owner_costume) do %>
+        <i class="fa-solid fa-pen"></i>
+        <% end %>
         <%# DELETE BUTTON %>
         <%= link_to "delete",
           owner_costume_path(owner_costume),
