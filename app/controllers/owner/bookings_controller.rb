@@ -5,7 +5,7 @@ class Owner::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "accepted"
     @booking.save
-    redirect_to costume_path(@booking.costume)
+    redirect_to dashboard_path
   end
 
   # REFUSER BOOKING
@@ -13,6 +13,6 @@ class Owner::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "declined"
     @booking.save
-    redirect_to costume_path(@booking.costume)
+    redirect_to dashboard_path
   end
 end
