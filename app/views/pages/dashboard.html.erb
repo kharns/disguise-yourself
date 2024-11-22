@@ -69,8 +69,8 @@
   <%# All costumes you're selling %>
   <h2 id="title-owner-costumes">All your costume in the renting shop</h2>
   <div class="owner-costumes">
-    <div class="owner-costume-card">
       <% @owner_costumes.each do |owner_costume| %>
+        <div class="owner-costume-card">
           <div class="photo-card-owner">
             <%= cl_image_tag(owner_costume.photo.key, class: "rounded", width: 300, height: 200, crop: :fill, gravity: :face) %>
           </div>
@@ -83,10 +83,8 @@
               owner_costume_path(owner_costume), class: "btn btn-light",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
             %></button>
-            <% end %>
           </div>
-      </div>
-    </div>
+        </div>
+      <% end %>
   </div>
-
 </div>

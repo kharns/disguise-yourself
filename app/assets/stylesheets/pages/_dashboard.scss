@@ -64,8 +64,8 @@
 }
 
 .owner-costumes {
-  // display: grid; /* Active le mode grille */
-  grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+  display: grid; /* Active le mode grille */
+  grid-template-columns: repeat(3, 1fr); /* 2 colonnes de largeur égale */
   gap: 20px; /* Espacement entre les cartes */
   width: 100%; /* S'assure que le conteneur prend toute la largeur */
   margin: 0 auto;
