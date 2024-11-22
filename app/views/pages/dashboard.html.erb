@@ -2,75 +2,128 @@
 
 <%= render "shared/flashes" %>
 
-<div class="pages-container">
-  <h1> Hello <%= @user.username  %> </h1>
-  <div id="booking-dashboard-grid">
-    <%# Div des Owner Bookings status : "Pending" %>
-    <div class="show-bookings mt-3">
-      <% if @owner_bookings == [] %>
-        <h2 class="text-decoration">You don't have any booking at this moment</h2>
-      <% else %>
-        <h2 class="text-decoration">Bookings for your costumes</h2>
-        <div id="pending-bloc"class="d-flex gap-3 mt-3">
-          <% if @owner_bookings != nil %>
-            <% @owner_bookings.each do |b| %>
-              <div id="pending-card-owner" class="bg-white p-3">
-                <img src="#" alt="Image du costume">
-                <p class="border rounded"> <%= b.status %> </p>
-                <p><strong>Book by:</strong> <%= b.user.username %></p>
-                <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-                <p>Start: <%= b.start_date %></p>
-                <p>End: <%= b.end_date %></p>
-                <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-                <button type="button" class="btn btn-outline-success">Accept</button>
-                <button type="button" class="btn btn-outline-danger">Decline</button>
-              </div>
+<div class="container-dashboard pages-container" >
+  <h1 id="title-dashboard"> Hello <%= @user.username.capitalize  %> </h1>
+
+  <div class="all-booking">
+    <%#  Div Costume-rent by current_user  %>
+    <div class="status-bookings">
+      <h2 class="text-decoration">The costumes you're going to wear</h2>
+        <div class="pending-bookings">
+        <% if @owner_bookings != [] %>
+          <div id="pending-bloc"class="gap-1">
+            <% if @owner_bookings != nil %>
+              <% @owner_bookings.where(status: "accepted").each do |b| %>
+                <div class="card-owner bg-white d-flex my-3">
+                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <div class="flex-grow-1 px-3 pt-3">
+                    <div class="d-flex justify-content-between">
+                      <p>From: <%= b.start_date %></p>
+                      <p>To: <%= b.end_date %></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <%# condition pour l'status%>
+                      <% if b.status == 'pending'%>
+                        <p class="status-yellow">Pending</p>
+                      <% elsif b.status == 'accepted'%>
+                        <p class= "status-green">Accepted</p>
+                      <% elsif b.status == 'declined' %>
+                        <p class= "status-red">Declined</p>
+                      <% end %>
+                      <p><strong><%= b.total_price.round %>€</strong></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <%# Div des Owner Bookings status : "Accepted" %>
-    <div class="validate-card mt-3">
-      <% if @owner_bookings == [] %>
-        <h2 class="text-decoration">You don't have any booking at this moment</h2>
-      <% else %>
-        <h2 class="text-decoration">Validates Bookings !</h2>
-        <div id="validate-bloc" class="d-flex gap-3 mt-3">
-          <% if @owner_bookings != nil %>
-            <% @owner_bookings.each do |b| %>
-              <div id="validate-card-owner" class="bg-white p-3">
-                <img src="#" alt="Image du costume">
-                <p class="border border-success"> <%= b.status = "Accepted" %> </p>
-                <p><strong>Book by:</strong> <%= b.user.username %></p>
-                <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-                <p>Start: <%= b.start_date %></p>
-                <p>End: <%= b.end_date %></p>
-                <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-              </div>
+    <%# Status div avec pending et validates booking %>
+    <div class="status-bookings">
+      <%# Div des Owner Bookings status : "Pending" %>
+      <div class="pending-bookings">
+      <h3 class="text-center">Bookings on your costumes</h3>
+        <% if @owner_bookings == [] %>
+          <h2 class="text-secondary">You don't have any booking at this moment</h2>
+        <% else %>
+          <h4 class="mt-3 text-secondary">Pending bookings</h4>
+          <div id="pending-bloc"class="gap-1">
+            <% if @owner_bookings != nil %>
+              <% @owner_bookings.where(status: "pending").each do |b| %>
+                <div class="card-owner bg-white d-flex my-3">
+                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <div class="flex-grow-1 px-3 pt-3">
+                    <div class="d-flex justify-content-between">
+                      <p>From: <%= b.start_date %></p>
+                      <p>To: <%= b.end_date %></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p>Booked by <em><%= b.user.username %></em></p>
+                      <p><strong><%= b.total_price.round %>€</strong></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <%= link_to "Accept", accept_owner_booking_path(b),class: "btn btn-outline-success w-50 me-1", data: { turbo_method: :patch} %>
+                      <%= link_to "Decline", decline_owner_booking_path(b),class: "btn btn-outline-danger w-50 ms-1", data: { turbo_method: :patch} %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <%# Div des Owner Bookings status : "Accepted" %>
+      <div class="pending-bookings">
+        <% if @owner_bookings != [] %>
+          <h4 class="mt-4 text-secondary">Validated bookings</h4>
+          <div id="pending-bloc"class="gap-1">
+            <% if @owner_bookings != nil %>
+              <% @owner_bookings.where(status: "accepted").each do |b| %>
+                <div class="card-owner bg-white d-flex my-3">
+                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <div class="flex-grow-1 px-3 pt-3">
+                    <div class="d-flex justify-content-between">
+                      <p>From: <%= b.start_date %></p>
+                      <p>To: <%= b.end_date %></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p>Booked by <em><%= b.user.username %></em></p>
+                      <p><strong><%= b.total_price.round %>€</strong></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%# All costumes you're selling %>
+  <h2 id="title-owner-costumes">All your costume in the renting shop</h2>
+  <div class="owner-costumes">
+      <% @owner_costumes.each do |owner_costume| %>
+        <div class="owner-costume-card">
+          <div class="photo-card-owner">
+            <%= cl_image_tag(owner_costume.photo.key, class: "rounded", width: 300, height: 200, crop: :fill, gravity: :face) %>
+          </div>
+          <div class="description-owner-costume-card">
+            <p><%= owner_costume.title %></p>
+            <%# EDIT BUTTON %>
+            <%= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, edit_owner_costume_path(owner_costume), class: "me-4 text-black"%>
+            <%# DELETE BUTTON %>
+            <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
+              owner_costume_path(owner_costume),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "ms-4 text-danger"
+            %>
+          </div>
         </div>
       <% end %>
-    </div>
   </div>
-  <%# All costumes you're selling %>
-  <div>
-    <h2>All your costume in the renting shop</h2>
-    <div class="owner-costume-card">
-      <% @owner_costumes.each do |owner_costume| %>
-      <%= owner_costume.title  %>
-        <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
-        <%# EDIT BUTTON %>
-        <%= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, edit_owner_costume_path(owner_costume), class: "text-black"%>
-        <%# DELETE BUTTON %>
-        <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
-          owner_costume_path(owner_costume),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "text-danger"
-        %>
-      <% end %>
-    </div>
-  </div>
-  </div>
+</div>

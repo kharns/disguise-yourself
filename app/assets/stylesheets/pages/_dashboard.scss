@@ -1,14 +1,89 @@
-#booking-dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px
-}
-#pending-card-owner{
-  grid-column: 1 / 2;
-  box-shadow: 0px 0px 5px grey;
+// Container Dashboard
+.container-dashboard {
+  display: flex;
+  flex-direction: column;
 }
 
-#validate-card-owner {
-  grid-column: 1 / 2;
-  box-shadow: 0px 0px 5px grey;
+// Titre avec le Username
+#title-dashboard {
+  text-align: center;
+  margin: 15px;
+}
+
+// Tous les bookings (div User-Costume-Rent)&(div pending & div validate)
+.all-booking {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+  // justify-content: space-between;
+  // align-items: start;
+  gap: 20px;
+}
+
+// Div avec Pending et Validate
+.status-bookings {
+  border: 1px solid #ccc; /* Bordure pour mieux voir les colonnes */
+  background-color: #f9f9f9; /* Couleur de fond */
+  box-shadow: 0px 0px 1px grey;
+  padding: 20px;
+}
+
+// Les titres de Pending et Validate
+.title-status {
+  text-align: center;
+  background-color: #f9f9f9; /* Couleur de fond */
+  border: 1px solid lightgray;
+}
+
+// Les card Pending et Validate
+  // Pending card
+  .card-owner {
+    box-shadow: 0px 0px 5px grey;
+    height: 150px;
+  }
+
+    // Icon Validate
+    #validate-icon {
+      background-color: rgb(132, 235, 132);
+      color: rgb(39, 157, 39);
+      text-align: center;
+    }
+
+/////////////////////////////////////////
+// Div des costumes liés à un owner_id //
+/////////////////////////////////////////
+
+// Titre Owner Costumes
+#title-owner-costumes {
+  text-align: center;
+  margin: 15px;
+  margin-top: 25px;
+}
+
+.owner-costumes {
+  display: grid; /* Active le mode grille */
+  grid-template-columns: repeat(3, 1fr); /* 2 colonnes de largeur égale */
+  gap: 20px; /* Espacement entre les cartes */
+  width: 100%; /* S'assure que le conteneur prend toute la largeur */
+  margin: 0 auto;
+}
+
+.owner-costume-card {
+  background-color: #f9f9f9; /* Couleur d'arrière-plan */
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 15px;
+  text-align: center; /* Centre le texte et le contenu */
+  display: flex;
+  flex-direction: column; /* Permet d'empiler le contenu verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+}
+
+.photo-card-owner img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.description-owner-costume-card button {
+  margin: 5px;
 }
