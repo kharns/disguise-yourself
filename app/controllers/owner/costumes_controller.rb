@@ -34,7 +34,7 @@ class Owner::CostumesController < ApplicationController
       redirect_to dashboard_path, notice: "Costume deleted", status: :see_other
     else
       # A METTRE EN ALERTE (ROUGE)
-      redirect_to dashboard_path, notice: "Costume cannot be deleted, you have booking on it!"
+      redirect_to dashboard_path, alert: "Costume cannot be deleted, you have booking on it!"
     end
   end
 

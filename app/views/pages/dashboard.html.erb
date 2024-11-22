@@ -1,6 +1,6 @@
 <%= render "shared/navbarhome" %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<%= render "shared/flashes" %>
 
 <div class="container-dashboard pages-container" >
   <h1 id="title-dashboard"> Hello <%= @user.username.capitalize  %> </h1>
@@ -115,12 +115,13 @@
           <div class="description-owner-costume-card">
             <p><%= owner_costume.title %></p>
             <%# EDIT BUTTON %>
-            <button><%= link_to "Edit", edit_owner_costume_path(owner_costume), class: "btn btn-light" %></button>
+            <%= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, edit_owner_costume_path(owner_costume), class: "me-4 text-black"%>
             <%# DELETE BUTTON %>
-            <button><%= link_to "Delete",
-              owner_costume_path(owner_costume), class: "btn btn-light",
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-            %></button>
+            <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
+              owner_costume_path(owner_costume),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "ms-4 text-danger"
+            %>
           </div>
         </div>
       <% end %>
