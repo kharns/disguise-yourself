@@ -2,8 +2,6 @@
 .container-dashboard {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 // Titre avec le Username
@@ -14,10 +12,11 @@
 
 // Tous les bookings (div User-Costume-Rent)&(div pending & div validate)
 .all-booking {
-  display: flex;
-  columns: 2 auto;
-  justify-content: space-between;
-  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+  // justify-content: space-between;
+  // align-items: start;
+  gap: 20px;
 }
 
 // Div avec Pending et Validate
@@ -37,14 +36,11 @@
 
 // Les card Pending et Validate
   // Pending card
-  #pending-card {
+  .card-owner {
     box-shadow: 0px 0px 5px grey;
+    height: 150px;
   }
 
-  // Validate card
-  #validate-card {
-    box-shadow: 0px 0px 5px grey;
-  }
     // Icon Validate
     #validate-icon {
       background-color: rgb(132, 235, 132);
@@ -64,8 +60,8 @@
 }
 
 .owner-costumes {
-  // display: grid; /* Active le mode grille */
-  grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+  display: grid; /* Active le mode grille */
+  grid-template-columns: repeat(3, 1fr); /* 2 colonnes de largeur égale */
   gap: 20px; /* Espacement entre les cartes */
   width: 100%; /* S'assure que le conteneur prend toute la largeur */
   margin: 0 auto;
