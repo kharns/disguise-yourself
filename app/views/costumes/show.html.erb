@@ -39,7 +39,7 @@
       <div class="d-flex gap-3 mt-3">
         <% if @user_bookings != nil %>
           <% @user_bookings.each do |b| %>
-            <div class="bg-white card_width p-3">
+            <div class="bg-white card_width p-3 mb-3">
 
               <div class="d-flex justify-content-between">
                 <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
@@ -57,9 +57,6 @@
                 <p>To <%= b.end_date %></p>
               </div>
                 <p><i class="fa-solid fa-euro-sign"></i> <strong><%= b.total_price.round %></strong></p>
-              <%# Liens pour ACCEPT et DECLINE => A transférer dans DASHBOARD %>
-              <%# <%= link_to "accept", accept_owner_booking_path(b), data: { turbo_method: :patch} %>
-              <%# <%= link_to "decline", decline_owner_booking_path(b), data: { turbo_method: :patch} %>
             </div>
           <% end %>
         <% end %>

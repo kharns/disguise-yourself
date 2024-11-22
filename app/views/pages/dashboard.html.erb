@@ -15,7 +15,9 @@
             <% if @owner_bookings != nil %>
               <% @owner_bookings.where(status: "accepted").each do |b| %>
                 <div class="card-owner bg-white d-flex my-3">
-                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <%= link_to costume_path(b.costume) do %>
+                    <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <% end %>
                   <div class="flex-grow-1 px-3 pt-3">
                     <div class="d-flex justify-content-between">
                       <p>From: <%= b.start_date %></p>
@@ -54,7 +56,9 @@
             <% if @owner_bookings != nil %>
               <% @owner_bookings.where(status: "pending").each do |b| %>
                 <div class="card-owner bg-white d-flex my-3">
-                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <%= link_to costume_path(b.costume) do %>
+                    <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <% end %>
                   <div class="flex-grow-1 px-3 pt-3">
                     <div class="d-flex justify-content-between">
                       <p>From: <%= b.start_date %></p>
@@ -84,7 +88,9 @@
             <% if @owner_bookings != nil %>
               <% @owner_bookings.where(status: "accepted").each do |b| %>
                 <div class="card-owner bg-white d-flex my-3">
-                  <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <%= link_to costume_path(b.costume) do %>
+                    <%=  cl_image_tag(b.costume.photo.key, width: 150, height: 150, crop: :fill, gravity: :face) %>
+                  <% end %>
                   <div class="flex-grow-1 px-3 pt-3">
                     <div class="d-flex justify-content-between">
                       <p>From: <%= b.start_date %></p>
@@ -106,12 +112,14 @@
 
   <%# All costumes you're selling %>
   <h2 id="title-owner-costumes">All your costume in the renting shop</h2>
-  <div class="owner-costumes">
+  <div class="owner-costumes mb-3">
       <% @owner_costumes.each do |owner_costume| %>
         <div class="owner-costume-card">
-          <div class="photo-card-owner">
-            <%= cl_image_tag(owner_costume.photo.key, class: "rounded", width: 300, height: 200, crop: :fill, gravity: :face) %>
-          </div>
+          <%= link_to costume_path(owner_costume) do %>
+            <div class="photo-card-owner">
+              <%= cl_image_tag(owner_costume.photo.key, class: "rounded", width: 300, height: 200, crop: :fill, gravity: :face) %>
+            </div>
+            <% end %>
           <div class="description-owner-costume-card">
             <p><%= owner_costume.title %></p>
             <%# EDIT BUTTON %>
