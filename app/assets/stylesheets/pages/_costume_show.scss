@@ -31,21 +31,27 @@
   box-shadow: 0px 0px 5px grey;
 }
 
+.card_width {
+  width: 300px;
+}
 // status colors of booking
 .status-green {
   color: green;
+  box-shadow: 0px 0px 5px rgb(127, 226, 97);
   background-color: rgba(0, 255, 0, 0.1);
   border-radius: 10%;
 
 }
 .status-yellow {
   color: orange;
+  box-shadow: 0px 0px 5px rgb(231, 156, 70);
   background-color: rgba(255, 165, 0, 0.1);
   border-radius: 10%;
 }
 
 .status-red {
   color: red;
+  box-shadow: 0px 0px 5px rgb(235, 97, 97);
   background-color: rgba(255, 0, 0, 0.1);
   border-radius: 10%;
 }
