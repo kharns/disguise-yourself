@@ -1,0 +1,39 @@
+#new-costume-form { max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+    z-index: 1;
+}
+
+#new-costume-form .form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#new-costume-form .form-input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+#new-form-submit {
+  width: 100%;
+  padding: 10px 15px;
+  background: linear-gradient(#167FFB, #0F60C4);
+  border: none; border-radius: 4px;
+  color: #fff;
+  font-size: 1.2em; cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#new-form-submit:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+}

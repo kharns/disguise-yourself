@@ -1,0 +1,31 @@
+@import "components/form";
+
+#title-new {
+  text-align: center;
+  font-family: Impact;
+  margin-top: 8px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.container-new-owner {
+  position: relative;
+  height: 100%;
+}
+
+.container-new-owner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('homepage_estrade.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: -1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

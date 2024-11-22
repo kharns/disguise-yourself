@@ -1,0 +1,14 @@
+#booking-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px
+}
+#pending-card-owner{
+  grid-column: 1 / 2;
+  box-shadow: 0px 0px 5px grey;
+}
+
+#validate-card-owner {
+  grid-column: 1 / 2;
+  box-shadow: 0px 0px 5px grey;
+}

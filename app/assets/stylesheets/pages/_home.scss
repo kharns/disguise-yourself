@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
 }
 
 .container p {
@@ -51,43 +51,86 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: 0.8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.btn {
-  border: white;
-  background-color: purple;
-  color: white;
-  width: 50%;
-  padding: 15px;
-  border-radius: 10%;
-}
 
-.btn:hover {
-  background-color: rgb(164, 19, 164);
-  color: white;
-}
-
+// Costume card homepage
 .costumecard {
   columns: 2;
 }
 .costumecard img{
   display: flex;
-  gap: 20px; /* Add space between images */
+  gap: 40px; /* Add space between images */
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 10%;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
-.footer {
-  background-color: #999999;
-  display: flex; /* Pour aligner les logos horizontalement */
-  justify-content: center; /* Centre les logos horizontalement */
-  align-items: center; /* Centre verticalement dans le footer */
-  bottom: 0;
-  color: white;
-  text-align: center;
+// Button homepage
+
+// #btn-homepage {
+//   border: white;
+//   background-color: purple;
+//   color: white;
+//   width: 50%;
+//   padding: 15px;
+//   border-radius: 10%;
+//   text-decoration:none;
+//   text-align: center;
+// }
+
+
+// #btn-homepage:hover {
+//   background-color: rgb(164, 19, 164);
+//   color: white;
+// }
+
+/* CSS */
+#btn-homepage {
+  align-items: center;
+  appearance: none;
+  background: linear-gradient(130deg, rgba(226,172,198,1) 11%, rgba(147,151,164,1) 25%, rgba(232,173,200,1) 54%, rgba(137,148,160,1) 74%, rgba(238,174,202,1) 97%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+#btn-homepage:focus {
+  box-shadow: rgba(232,173,200,1) 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(147,151,164,1) 0 -3px 0 inset;
+}
+
+#btn-homepage:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(147,151,164,1) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#btn-homepage:active {
+  box-shadow: rgba(232,173,200,1) 0 3px 7px inset;
+  transform: translateY(2px);
 }

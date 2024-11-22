@@ -7,15 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
-
-    <%# LES DEUX LIGNES CI-DESSOUS SONT LA CAUSE DE LA LIGNE BLANCHE EN BAS DE PAGE %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <main class="min-vh-100">
+      <%= yield %>
+    </main>
+    <%= render "shared/footer" %>
   </body>
 </html>
