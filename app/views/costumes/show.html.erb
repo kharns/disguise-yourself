@@ -9,7 +9,7 @@
   <h1 class="mt-3 show-title"><%= @costume.title.capitalize %></h1>
 
   <div class="show-grid mt-3">
-    <div class="show-card d-flex flex-column">
+    <div class="show-card d-flex flex-row">
       <%= cl_image_tag(@costume.photo.key, width: 500, height: 350, crop: :fill, gravity: :face) %>
       <p class="mt-2 p-3"><%= @costume.description %></p>
     </div>
@@ -34,10 +34,10 @@
   <div class="show-bookings mt-3">
     <%# Si l'user n'a pas de réservations sur ce costume, on le lui indique %>
     <% if @user_bookings == [] %>
-    <h2 class="text-decoration-underline">You don't have any booking for this costume :( </h2>
+    <h2 class="text-decoration-message">You don't have any booking for this costume :( </h2>
     <% else %>
       <%# S'il a des réservtions, on les affiche %>
-      <h2 class="text-decoration-underline">Your bookings for this costume</h2>
+      <h2 class="text-decoration-message">Your bookings for this costume</h2>
       <div class="d-flex gap-3 mt-3">
         <% if @user_bookings != nil %>
           <% @user_bookings.each do |b| %>
