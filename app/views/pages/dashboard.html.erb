@@ -2,79 +2,91 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-  <h1 id="title-dashboard"> Hello <%= @user.username  %> </h1>
-<div id="container" class="pages-container">
-  <div id="booking-dashboard-grid">
-    <%# Div des Owner Bookings status : "Pending" %>
-    <div class="pending-bookings mt-3">
-      <% if @owner_bookings == [] %>
-        <h2 class="text-decoration">You don't have any booking at this moment</h2>
-      <% else %>
-        <div class="title-status">
-          <h2 class="text-decoration">Bookings for your costumes</h2>
-        </div>
-        <div id="pending-bloc"class="d-flex gap-3 mt-3">
-          <% if @owner_bookings != nil %>
-            <% @owner_bookings.each do |b| %>
-              <div id="pending-card-owner" class="bg-white p-3">
-                <img src="#" alt="Image du costume">
-                <p class="border rounded"> <%= b.status %> </p>
-                <p><strong>Book by:</strong> <%= b.user.username %></p>
-                <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-                <p>Start: <%= b.start_date %></p>
-                <p>End: <%= b.end_date %></p>
-                <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-                <button type="button" class="btn btn-outline-success">Accept</button>
-                <button type="button" class="btn btn-outline-danger">Decline</button>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+<div class="container-dashboard" >
+  <h1 id="title-dashboard"> Hello <%= @user.username.capitalize  %> </h1>
+
+  <div class="all-booking">
+    <%#  Div Costume-rent by current_user  %>
+    <div class="costumes-rent-user">
+      <h2 class="text-decoration">Costume Already Rent</h2>
     </div>
 
-    <%# Div des Owner Bookings status : "Accepted" %>
-    <div class="validate-card-owner mt-3">
-      <% if @owner_bookings == [] %>
-        <h2 class="text-decoration">You don't have any booking at this moment</h2>
-      <% else %>
-        <div class="title-status">
-          <h2 class="text-decoration">Validates Bookings !</h2>
-        </div>
-        <div id="validate-bloc" class="d-flex gap-3 mt-3">
-          <% if @owner_bookings != nil %>
-            <% @owner_bookings.each do |b| %>
-              <div id="validate-card-owner" class="bg-white p-3">
-                <img src="#" alt="Image du costume">
-                <p class="border border-success"> <%= b.status = "Accepted" %> </p>
-                <p><strong>Book by:</strong> <%= b.user.username %></p>
-                <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
-                <p>Start: <%= b.start_date %></p>
-                <p>End: <%= b.end_date %></p>
-                <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
-              </div>
+    <%# Status div avec pending et validates booking %>
+    <div class="status-bookings">
+      <%# Div des Owner Bookings status : "Pending" %>
+      <div class="pending-bookings">
+        <% if @owner_bookings == [] %>
+          <h2 class="text-decoration">You don't have any booking at this moment</h2>
+        <% else %>
+          <div class="title-status">
+            <h2>Bookings for your costumes</h2>
+          </div>
+          <div id="pending-bloc"class="d-flex gap-1">
+            <% if @owner_bookings != nil %>
+              <% @owner_bookings.each do |b| %>
+                <div id="pending-card-owner" class="bg-white p-3">
+                  <img src="#" alt="Image du costume">
+                  <p class="border rounded"> <%= b.status %> </p>
+                  <p><strong>Book by:</strong> <%= b.user.username %></p>
+                  <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
+                  <p>Start: <%= b.start_date %></p>
+                  <p>End: <%= b.end_date %></p>
+                  <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
+                  <button type="button" class="btn btn-outline-success">Accept</button>
+                  <button type="button" class="btn btn-outline-danger">Decline</button>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <%# Div des Owner Bookings status : "Accepted" %>
+      <div class="validate-card-owner mt-3">
+        <% if @owner_bookings == [] %>
+          <h2 class="text-decoration">You don't have any booking at this moment</h2>
+        <% else %>
+          <div id="validate-bloc" class="d-flex gap-1">
+            <% if @owner_bookings != nil %>
+              <% @owner_bookings.each do |b| %>
+                <div id="validate-card-owner" class="bg-white p-3">
+                  <img src="#" alt="Image du costume">
+                  <p id="validate-icon"class="border border-success"> <%= b.status = "Booking validate" %> </p>
+                  <p><strong>Book by:</strong> <%= b.user.username %></p>
+                  <p><em>in <%= (b.start_date - Date.today).to_i %> days!</em></p>
+                  <p>Start: <%= b.start_date %></p>
+                  <p>End: <%= b.end_date %></p>
+                  <p>Total price: <strong><%= b.total_price.round %>€</strong></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  <%#  %>
+
   <%# All costumes you're selling %>
-  <div>
-    <h2>All your costume in the renting shop</h2>
+  <h2 id="title-owner-costumes">All your costume in the renting shop</h2>
+  <div class="owner-costumes">
     <div class="owner-costume-card">
       <% @owner_costumes.each do |owner_costume| %>
-      <%= owner_costume.title  %>
-        <%= cl_image_tag(owner_costume.photo.key, width: 200, height: 200, crop: :fill, gravity: :face) %>
-        <%# EDIT BUTTON %>
-        <%= link_to "edit", edit_owner_costume_path(owner_costume) %>
-        <%# DELETE BUTTON %>
-        <%= link_to "delete",
-          owner_costume_path(owner_costume),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-        %>
-      <% end %>
+          <div class="photo-card-owner">
+            <%= cl_image_tag(owner_costume.photo.key, class: "rounded", width: 300, height: 200, crop: :fill, gravity: :face) %>
+          </div>
+          <div class="description-owner-costume-card">
+            <p><%= owner_costume.title %></p>
+            <%# EDIT BUTTON %>
+            <button><%= link_to "Edit", edit_owner_costume_path(owner_costume), class: "btn btn-light" %></button>
+            <%# DELETE BUTTON %>
+            <button><%= link_to "Delete",
+              owner_costume_path(owner_costume), class: "btn btn-light",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %></button>
+            <% end %>
+          </div>
+      </div>
     </div>
   </div>
-  </div>
+
+</div>
